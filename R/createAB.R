@@ -220,7 +220,7 @@ createAB <- function(object,
 	# Create Affybacth matrix for permutation
 	if (!is.null(perm.list)) {
 		file.rep = FALSE
-		if (obj$source != 'imagene' & obj$source != 'exiqon') {
+		if (is.dual & obj$source != 'imagene' & obj$source != 'exiqon') {
 			file.rep = TRUE
 			mR.temp <- matrix(NA, max(perm.list$rindex), max(perm.list$cindex))
 			mG.temp <- matrix(NA, max(perm.list$rindex), max(perm.list$cindex))
@@ -489,9 +489,3 @@ bg.boxplot <- function(x,signature="AffyBacth") {
 	ab <- get.bg.ab(x)
 	boxplot(ab)
 }
-
-
-
-
-
-
